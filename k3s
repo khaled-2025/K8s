@@ -1,0 +1,5 @@
+
+
+to create alias & run the auto completion follow the instractions below:
+
+=> nano .bashrc => source <(k completion bash | sed s/kubectl/k/g) => it will enforce autocompletiom work
