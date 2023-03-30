@@ -1,4 +1,50 @@
 
-kubectl config set-context --current --namespace=<namespace> =? to switch namespace in kubernetes
+kubectl config set-context --current --namespace=<namespace> => to switch namespace in kubernetes
+###############################################
+Kubectl autocomplete:
+
 source <(kubectl completion bash)
 echo "source <(kubectl completion bash)" >> ~/.bashrc
+###############################################
+Deleting resources:
+
+1. kubectl delete -f ./pod.json  # Delete a pod using the type and name specified in pod.json
+2. kubectl delete pod unwanted --now # Delete a pod with no grace period
+3. kubectl delete pod,service baz foo # Delete pods and services with same names "baz" and "foo"
+4. kubectl delete pods,services -l name=myLabel # Delete pods and services with label name=myLabel
+5. kubectl -n my-ns delete pod,svc --all # Delete all pods and services in namespace my-ns,
+###############################################
+Interacting with running Pods:
+
+1. kubectl logs my-pod # dump pod logs (stdout)
+2. kubectl logs -l name=myLabel # dump pod logs, with label name=myLabel (stdout)
+3. kubectl logs my-pod --previous # dump pod logs (stdout) for a previous instantiation of a container
+4. kubectl logs my-pod -c my-container # dump pod container logs (stdout, multi-container case)
+5. kubectl logs -l name=myLabel -c my-container # dump pod logs, with label name=myLabel (stdout)
+6. kubectl logs my-pod -c my-container --previous # dump pod container logs (stdout, multi-container case) for a previous instantiation of a container
+7. kubectl logs -f my-pod # stream pod logs (stdout)
+8. kubectl logs -f my-pod -c my-container # stream pod container logs (stdout, multi-container case)
+9. kubectl logs -f -l name=myLabel --all-containers # stream all pods logs with label name=myLabel (stdout)
+10. kubectl attach my-pod -i  # Attach to Running Container
+11. kubectl run -i --tty busybox --image=busybox:1.28 -- sh # Run pod as interactive shell
+12. kubectl run nginx --image=nginx -n mynamespace # Start a single instance of nginx pod in the namespace of mynamespace
+13. kubectl port-forward my-pod 5000:6000 # Listen on port 5000 on the local machine and forward to port 6000 on my-pod
+14. kubectl exec my-pod -- ls /  # Run command in existing pod (1 container case)
+15. kubectl exec --stdin --tty my-pod -- /bin/sh # Interactive shell access to a running pod (1 container case)
+16. kubectl exec my-pod -c my-container -- ls / # Run command in existing pod (multi-container case)
+17. kubectl top pod POD_NAME --containers # Show metrics for a given pod and its containers
+18. kubectl top pod POD_NAME --sort-by=cpu  # Show metrics for a given pod and sort it by 'cpu' or 'memory'
+###############################################
+
+
+
+
+
+
+
+
+
+
+
+
+
