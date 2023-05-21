@@ -1,5 +1,7 @@
 
-kubectl config set-context --current --namespace=<namespace> => to switch namespace in kubernetes
+
+$ kubectl config set-context --current --namespace=<namespace> => to switch namespace in kubernetes
+$ kubectl config get-contexts => verify which namespace ur in & display list of contexts
 ###############################################
 Kubectl autocomplete:
 
