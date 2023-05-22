@@ -19,12 +19,17 @@ Deleting resources:
 Interacting with running Pods:
 
 - kubect exec -it POD_NAME bash => to login inside the pod
+- kubectl describe nodes my-node => to get more info about your node 
+- kubectl describe pods my-pod => to get more info about your pod
 - kubectl logs my-pod # dump pod logs (stdout)
 - kubectl top pod POD_NAME --sort-by=cpu  # Show metrics for a given pod and sort it by 'cpu' or 'memory'
 - kubectl top pod POD_NAME --containers # Show metrics for a given pod and its containers
 - kubectl exec my-pod -- ls /  # Run command in existing pod (1 container case)
 - kubectl exec my-pod -c my-container -- ls / # Run command in existing pod (multi-container case)
 ###############################################
+Scaling resources:
+
+- kubectl scale deployment deployment_name --replicas=5 => to scale the deployment to 5 instances
 
 
 
