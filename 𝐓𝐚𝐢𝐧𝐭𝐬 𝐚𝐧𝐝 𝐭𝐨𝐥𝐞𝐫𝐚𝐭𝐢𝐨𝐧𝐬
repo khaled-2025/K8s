@@ -1,0 +1,13 @@
+𝐓𝐚𝐢𝐧𝐭𝐬 𝐚𝐧𝐝 𝐭𝐨𝐥𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐬 are used in Kubernetes to provide more fine-grained control over the placement of pods on nodes within a cluster. They help you achieve better resource utilization, isolation, and segregation of workloads.
+
+▶ 𝐓𝐚𝐢𝐧𝐭: A taint is a property applied to a node in a Kubernetes cluster that indicates a special condition or preference about the types of pods that can be scheduled onto that node. Taints are typically used to repel certain pods from being scheduled on specific nodes, thereby influencing the scheduling decisions made by the Kubernetes scheduler.
+
+𝐍𝐨𝐝𝐞𝐬 𝐜𝐚𝐧 𝐛𝐞 "𝐭𝐚𝐢𝐧𝐭𝐞𝐝" 𝐰𝐢𝐭𝐡 𝐬𝐩𝐞𝐜𝐢𝐟𝐢𝐜 𝐤𝐞𝐲-𝐯𝐚𝐥𝐮𝐞 𝐩𝐚𝐢𝐫𝐬, 𝐚𝐧𝐝 𝐞𝐚𝐜𝐡 𝐭𝐚𝐢𝐧𝐭 𝐡𝐚𝐬 𝐚𝐧 𝐚𝐬𝐬𝐨𝐜𝐢𝐚𝐭𝐞𝐝 𝐞𝐟𝐟𝐞𝐜𝐭, 𝐰𝐡𝐢𝐜𝐡 𝐜𝐚𝐧 𝐛𝐞 𝐨𝐧𝐞 𝐨𝐟 𝐭𝐡𝐞 𝐟𝐨𝐥𝐥𝐨𝐰𝐢𝐧𝐠:
+
+𝟏. 𝐍𝐨𝐒𝐜𝐡𝐞𝐝𝐮𝐥𝐞: Pods that do not tolerate the taint will not be scheduled on the tainted node.
+
+𝟐. 𝐏𝐫𝐞𝐟𝐞𝐫𝐍𝐨𝐒𝐜𝐡𝐞𝐝𝐮𝐥𝐞: The scheduler will try to avoid scheduling pods that do not tolerate the taint on the node, but it's not a strict rule.
+
+𝟑. 𝐍𝐨𝐄𝐱𝐞𝐜𝐮𝐭𝐞: Pods that do not tolerate the taint will not be scheduled onto the node, and existing pods on the node that were scheduled before the taint was applied may be evicted if they don't tolerate the taint.
+
+▶ 𝐓𝐨𝐥𝐞𝐫𝐚𝐭𝐢𝐨𝐧: Toleration, on the other hand, is a property specified within a pod's configuration that indicates the pod's ability to tolerate specific taints on nodes. When a pod has tolerations set, it can be scheduled in nodes with corresponding taints that match the tolerations. Toleration allows you to control which nodes a pod can be scheduled on, even if those nodes have certain taints applied.
