@@ -1,17 +1,18 @@
 Table of content:
 
-Overview
+- Overview
 
-procedures to resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress
+- procedures to resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress
 
-Overview
+* Overview
 
 this Document walks you through the steps to troubleshoot and resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress step by step.
 
-Before we dig deeper
+* Before we dig deeper
 The 502 error often indicates a failure to establish a connection between the Nginx Ingress Controller and the upstream server. Let's explore some troubleshooting steps to tackle this issue head-on:
 
-procedures to resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress
+* procedures to resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress
+
 1️⃣ Start by checking the availability and health of the backend Pods and services. Ensure they are running and functioning as expected.
 
 2️⃣ Verify the configuration of your Kubernetes Service. Double-check that the ports specified in the Service match those of your application.
