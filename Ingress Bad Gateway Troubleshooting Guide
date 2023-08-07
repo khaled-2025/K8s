@@ -1,0 +1,31 @@
+Table of content:
+
+Overview
+
+procedures to resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress
+
+Overview
+
+this Document walks you through the steps to troubleshoot and resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress step by step.
+
+Before we dig deeper
+The 502 error often indicates a failure to establish a connection between the Nginx Ingress Controller and the upstream server. Let's explore some troubleshooting steps to tackle this issue head-on:
+
+procedures to resolve 502 Bad Gateway Error in Kubernetes Nginx Ingress
+1️⃣ Start by checking the availability and health of the backend Pods and services. Ensure they are running and functioning as expected.
+
+2️⃣ Verify the configuration of your Kubernetes Service. Double-check that the ports specified in the Service match those of your application.
+
+3️⃣ Examine your network setup. Ensure there are no firewall rules or network policies blocking communication between the Ingress Controller and the backend Pods.
+
+4️⃣ Confirm that DNS resolution is working correctly. Check that the hostname or IP address used in the Ingress resource resolves to the expected backend service.
+
+5️⃣ Validate the configuration of any Load Balancer in front of the Ingress Controller. Ensure it is correctly forwarding traffic to the Ingress Controller's service.
+
+6️⃣ Dive into the logs of the Nginx Ingress Controller Pod using kubectl logs. Look for any error messages or hints that may help identify the root cause.
+
+7️⃣ Don't forget to inspect the logs of your backend application. Look for any connection failures or application-specific errors that could be contributing to the 502 error.
+
+8️⃣ Check if there are any resource limitations on your backend Pods or Ingress Controller that could be causing timeouts or connection failures.
+
+By following these troubleshooting steps, you can narrow down the source of the 502 Bad Gateway error and take appropriate actions to resolve it. Keep analyzing logs, verifying configurations, and ensuring the proper functioning of all components involved. 💪🔍
