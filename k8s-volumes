@@ -1,0 +1,62 @@
+k8s volumes:
+============================
+brief:
+
+- volume is directory with some data.
+- these volumes are accessible in containers in a pod.
+- pod specifies what volumes to provide.
+- where to mount those in containers.
+
+============================
+Persistent Volume (PV):
+
+- a cluster resource.
+- created via YAML file.
+  kind: PersistentVolume
+  spec: e.g. how much storage?
+  volumeMode: Filesystem
+  accessModes:
+   - ReadWriteOnce
+   
+- needs actual physical storage, like local disk,nfs server, cloud storage.
+- think of storage as an external plugin to ur cluster.
+- Pvs are not namespaced - which means it's accessible to the whole cluster.
+============================
+Persistent Volume Claim (PVC):
+
+- application has to claim the persistent Volume, and to do that u need PVC. 
+- pod requests the volume through the PVC.
+- claim tries to find a volume in cluster.
+- volumes is mounted into pod.
+- volume is mounted into container from inside the pod YAML File.
+- volume has the actual storage backend. 
+- then the pod is able is use the actual storage.
+- claims must be in the same namespace.
+============================
+Configmap Vs Secret:
+
+- they are local volumes.
+- but not created via PV and PVC.
+- managed by k8s itself.
+- A ConfigMap provides a way to inject configuration data into pods.
+- The data stored in a ConfigMap can be referenced in a volume of type configMap and then consumed by containerized applications running in a pod.
+============================
+
+storage class:
+
+- SC Provisions persistent volumes dynamically, when PVC claims it.
+- sc create pv dynamically in the background.
+- provisioner attribute is the main part of the storage class configuration because it tells k8s which provisioner to be used for specific storage platform or cloud provider to create the PV component out of it. 
+- each storage backend has own provisioner that k8s offers internally which are prefixed with "kubernetes.io"
+- there're internal provisioner and external provisioner. 
+- we configure parameters for storage we want to request for PV.
+- storage class is another abstraction level that abstracts the underlying storage proviser as well as parameters for that storage characteristics.
+ 
+============================
+storage class usage:
+
+- same as pv it requested or claimed by PVC.
+- PVC requests storage from SC.
+- so, in the PVC configuration yaml file, we add additional attribute that is called => storageClassName: "which is the name of ur perviously created SC"
+- SC creates PV that meets the needs for the claim. 
+
