@@ -1,0 +1,32 @@
+To initialize a Vault pod using Helm, you can use the following steps:
+
+Install the HashiCorp Vault Helm chart:
+helm repo add hashicorp https://helm.hashicorp.com/
+helm repo update
+helm install vault hashicorp/vault
+Initialize the Vault pod:
+kubectl exec -ti vault-0 -- vault operator init
+Unseal the Vault pod:
+kubectl exec -ti vault-0 -- vault operator unseal <unseal_key_1>
+kubectl exec -ti vault-0 -- vault operator unseal <unseal_key_2>
+kubectl exec -ti vault-0 -- vault operator unseal <unseal_key_3>
+Once you have initialized and unsealed the Vault pod, you can start using it to store and manage your secrets.
+
+Example:
+
+# Install the Vault Helm chart
+helm repo add hashicorp https://helm.hashicorp.com/
+helm repo update
+helm install vault hashicorp/vault
+
+# Initialize the Vault pod
+kubectl exec -ti vault-0 -- vault operator init
+
+# Unseal the Vault pod
+kubectl exec -ti vault-0 -- vault operator unseal <unseal_key_1>
+kubectl exec -ti vault-0 -- vault operator unseal <unseal_key_2>
+kubectl exec -ti vault-0 -- vault operator unseal <unseal_key_3>
+Notes:
+
+You can also initialize and unseal the Vault pod using the Helm chart. To do this, you need to set the server.init and server.unseal values in the Helm chart configuration.
+You can also use the Vault CLI to initialize and unseal the Vault pod. However, it is recommended to use Helm to install and manage Vault, as it is the more supported method.
