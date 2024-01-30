@@ -8,7 +8,7 @@ $ helm install vault hashicorp/vault
 
 # Initialize the Vault pod:
 
-$ kubectl exec -ti vault-0 -- vault operator init
+$ kubectl -n vault exec -ti vault-0 -- vault operator init
 
 # Unseal the Vault pod:
 
