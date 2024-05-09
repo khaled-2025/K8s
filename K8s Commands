@@ -1,8 +1,9 @@
-
+General:
 
 $ kubectl config set-context --current --namespace=<namespace> => to switch namespace in kubernetes
 $ kubectl config get-contexts => verify which namespace ur in & display list of contexts
 $ kubectl run nginx --image=nginx --port=80 --restart=Never => create a new pod
+$ kubectl get componentstatuses => to check the status of the API server & etcd 
 ###############################################
 Kubectl autocomplete:
 
